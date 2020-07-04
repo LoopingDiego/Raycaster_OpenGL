@@ -72,8 +72,8 @@ int map[] =
 1, 1, 1, 1, 1, 1, 1, 1,
 1, 0, 0, 0, 0, 0, 0, 1,
 1, 0, 1, 0, 0, 0, 0, 1,
-1, 0, 0, 0, 0, 0, 0, 1,
-1, 0, 0, 0, 0, 0, 0, 1,
+1, 0, 1, 0, 0, 0, 0, 1,
+1, 1, 0, 0, 0, 0, 0, 1,
 1, 0, 0, 0, 0, 1, 0, 1,
 1, 0, 0, 0, 0, 0, 0, 1,
 1, 1, 1, 1, 1, 1, 1, 1,
@@ -110,8 +110,8 @@ float dist(float ax, float ay, float bx, float by, float ang)
 }
 void draw_rays()
 {
-    int ray, mx, my, mp, ray_lenght;
-    float ray_x , ray_y, r_angle, x_offset, y_offset;
+    int ray, mx, my, mp, depth_field;
+    float ray_x , ray_y, r_angle, x_offset, y_offset, disT;
 
     r_angle = pangle - DR * 30;
     if(r_angle < 0)
@@ -122,10 +122,10 @@ void draw_rays()
     {
         r_angle -= 2 * PI;
     }
-    for (ray = 0; ray < 360; ray++)
+    for (ray = 0; ray < 60; ray++)
     {
         /*--horizontal lines--*/
-        ray_lenght = 0;
+        depth_field = 0;
         float disH = 1000000, hx = player_x, hy = player_y;
         float aTan = -1/tan(r_angle);
         if (r_angle > PI) /* look up */
@@ -146,9 +146,9 @@ void draw_rays()
         {
             ray_x = player_x;
             ray_y = player_y;
-            ray_lenght = 8;
+            depth_field = 8;
         }
-        while (ray_lenght < 8)
+        while (depth_field < 8)
         {
             mx = (int)(ray_x) >> 6;
             my = (int) (ray_y) >> 6;
@@ -158,18 +158,18 @@ void draw_rays()
                 hx = ray_x;
                 hy = ray_y;
                 disH = dist(player_x, player_y, hx, hy, r_angle);
-                ray_lenght = 8;
+                depth_field = 8;
             }
             else
             {
                 ray_x += x_offset;
                 ray_y += y_offset;
-                ray_lenght += 1;
+                depth_field += 1;
             }
                         
         }
         /*--vertical lines--*/
-        ray_lenght = 0;
+        depth_field = 0;
         float disV = 1000000, vx = player_x, vy = player_y;
         float nTan = -tan(r_angle);
         if (r_angle > PI_90 && r_angle < PI_270) /* look left */
@@ -190,9 +190,9 @@ void draw_rays()
         {
             ray_x = player_x;
             ray_y = player_y;
-            ray_lenght = 8;
+            depth_field = 8;
         }
-        while (ray_lenght < 8)
+        while (depth_field < 8)
         {
             mx = (int)(ray_x) >> 6;
             my = (int) (ray_y) >> 6;
@@ -202,13 +202,13 @@ void draw_rays()
                 vx = ray_x;
                 vy = ray_y;
                 disV = dist(player_x, player_y, vx, vy, r_angle);
-                ray_lenght = 8;
+                depth_field = 8;
             }
             else
             {
                 ray_x += x_offset;
                 ray_y += y_offset;
-                ray_lenght += 1;
+                depth_field += 1;
             }
                         
         }
@@ -216,17 +216,43 @@ void draw_rays()
         {
             ray_x = vx;
             ray_y = vy;
+            disT = disV;
+            glColor3f(1, 1, 0);
         }
         if (disH < disV)
         {
             ray_x = hx;
             ray_y = hy;
+            disT = disH;
+            glColor3f(1, 1, 0.5);
         }
-        glColor3f(1, 1, 0);
-        glLineWidth(1);
+        glLineWidth(2);
         glBegin(GL_LINES);
         glVertex2i(player_x,player_y);
         glVertex2i(ray_x, ray_y);
+        glEnd();
+        /*---3D walls----*/
+        float correction = pangle - r_angle;
+        if(r_angle < 0)
+        {
+            correction += 2 * PI;
+        }
+        if (correction> 2 * PI)
+        {
+            correction -= 2 * PI;
+        }
+        disT=disT*cos(correction);
+        float lineH = (map_unit_size*320)/disT;
+        if (lineH > 320)
+        {
+            lineH = 320;
+        }
+        
+        float lineO = 160 - lineH/2;
+        glLineWidth(9);
+        glBegin(GL_LINES);
+        glVertex2i(ray*7+530, lineO);
+        glVertex2i(ray*7+530,lineH+lineO);
         glEnd();
         r_angle += DR;
         if(r_angle < 0)
