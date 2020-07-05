@@ -12,9 +12,9 @@
   <p align="center">
         <em>Find a way out</em>
     <br /><br />
-    <a href="https://github.com/diego-9407/Raycaster_OpenGL/issues">Report Bug</a>
+    <a href="https://github.com/LoopingDiego/Raycaster_OpenGL/issues">Report Bug</a>
     ·
-    <a href="https://github.com/diego-9407/Raycaster_OpenGL/issues">Request Feature</a>
+    <a href="https://github.com/LoopingDiego/Raycaster_OpenGL/issues">Request Feature</a>
   </p>
 </p>
   
@@ -43,15 +43,15 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 
 
-[contributors-shield]: https://img.shields.io/github/contributors/diego-9407/Raycaster_OpenGL?style=flat-square
-[contributors-url]: https://github.com/diego-9407/Raycaster_OpenGL/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/diego-9407/Raycaster_OpenGL.svg?style=flat-square
-[forks-url]: https://github.com/diego-9407/Raycaster_OpenGL/network/members
-[stars-shield]: https://img.shields.io/github/stars/diego-9407/Raycaster_OpenGL.svg?style=flat-square
-[stars-url]: https://github.com/diego-9407/Raycaster_OpenGL/stargazers
-[issues-shield]: https://img.shields.io/github/issues/diego-9407/Raycaster_OpenGL?style=flat-square
-[issues-url]: https://github.com/diego-9407/Raycaster_OpenGL/issues
-[license-shield]: https://img.shields.io/github/license/diego-9407/Raycaster_OpenGL?style=flat-square
-[license-url]: https://github.com/diego-9407/Raycaster_OpenGL/blob/master/LICENCE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/LoopingDiego/Raycaster_OpenGL?style=flat-square
+[contributors-url]: https://github.com/LoopingDiego/Raycaster_OpenGL/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/LoopingDiego/Raycaster_OpenGL.svg?style=flat-square
+[forks-url]: https://github.com/LoopingDiego/Raycaster_OpenGL/network/members
+[stars-shield]: https://img.shields.io/github/stars/LoopingDiego/Raycaster_OpenGL.svg?style=flat-square
+[stars-url]: https://github.com/LoopingDiego/Raycaster_OpenGL/stargazers
+[issues-shield]: https://img.shields.io/github/issues/LoopingDiego/Raycaster_OpenGL?style=flat-square
+[issues-url]: https://github.com/LoopingDiego/Raycaster_OpenGL/issues
+[license-shield]: https://img.shields.io/github/license/LoopingDiego/Raycaster_OpenGL?style=flat-square
+[license-url]: https://github.com/LoopingDiego/Raycaster_OpenGL/blob/master/LICENCE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/fredhii
+[linkedin-url]: https://linkedin.com/in/loopingdiego
