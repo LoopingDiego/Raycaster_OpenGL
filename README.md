@@ -27,7 +27,7 @@ sudo apt install freeglut3-dev
 ## To Use
 - Compile
 ```
-gcc gcc *.c -lglut -lGLU -lGL -o maze *.c -lglut -lGLU -lGL -o maze
+gcc *.c -lglut -lGLU -lGL -o maze
 ```
 - Execute
 ```
