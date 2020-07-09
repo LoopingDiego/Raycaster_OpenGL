@@ -1,0 +1,2 @@
+gcc *.c -lglut -lGLU -lGL -lm -o maze
+./maze
