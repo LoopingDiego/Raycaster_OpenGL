@@ -5,11 +5,6 @@
 
 void draw_player()
 {
-    player.x = 300;
-    player.y = 300;
-    player.dx = cos(player.angle) * 5;
-    player.dy = sin(player.angle) * 5;
-
     glColor3f(0, 1, 0);
     glPointSize(8);
     glBegin(GL_POINTS);

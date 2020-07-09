@@ -13,17 +13,20 @@
 #define DR 0.0174533
 
 /*-player_struct--*/
-typedef struct entity {
+typedef struct {
     float angle;
     float x;
     float y;
     float dx;
     float dy;
 } Player;
-extern Player player;
+Player player;
 /*-functions-----*/
 void window_init();
 void display();
+void draw_map2D();
 void draw_player();
-
+void buttons(unsigned char key, int x, int y);
+float dist(float ax, float ay, float bx, float by, float ang);
+void draw_rays();
 #endif /* _MAZE_H_*/

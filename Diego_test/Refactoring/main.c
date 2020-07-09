@@ -13,6 +13,6 @@ int main(int argc, char *argv[])
 	glutCreateWindow("The Maze Game");
 	window_init();
     glutDisplayFunc(display);
-//   glutKeyboardFunc(buttons);
+    glutKeyboardFunc(buttons);
 	glutMainLoop();
 }
